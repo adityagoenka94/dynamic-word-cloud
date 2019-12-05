@@ -29,7 +29,10 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "./src/cloudModule/d3.layout.cloud.js",
+              "./src/cloudModule/word-cloud2-module.js"
+                       ]
           },
           "configurations": {
             "production": {
