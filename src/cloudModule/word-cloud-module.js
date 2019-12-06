@@ -154,7 +154,7 @@ var wordCloudModule = (function (d3Object) {
   // validating the D3 Library and request parameters which are mandatory
   function validataRequest(containerId, wordCloudData) {
 
-    if (!d3)
+    if (!d3Object)
       throw new Error('D3 Library not available');
 
     if (!containerId && typeof containerId !== "string")
