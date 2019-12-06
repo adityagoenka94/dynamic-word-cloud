@@ -17,8 +17,8 @@ export class AppComponent implements OnInit {
   constructor(private fetchDataS: FetchDataService) { }
 
   wordclouds = [
-    { divid: 'wordcloud1', title: 'Cancer Program', url: 'https://api.myjson.com/bins/80zl0' },
-    { divid: 'wordcloud2', title: 'Tuberculosis Program', url: 'https://api.myjson.com/bins/12o1gk' }
+    { divid: 'wordcloud1', title: 'Cancer Program', url: 'https://api.myjson.com/bins/80zl0', cloudData: null },
+    { divid: 'wordcloud2', title: 'Tuberculosis Program', url: 'https://api.myjson.com/bins/12o1gk', cloudData: null }
   ];
 
   ngOnInit() {
@@ -27,13 +27,13 @@ export class AppComponent implements OnInit {
 
   createWordCloudDynamically() {
 
-    this.wordclouds.forEach((cloud) => {
+    this.wordclouds.forEach((cloud,i) => {
     this.fetchDataS.getData(cloud.url).subscribe((response) => {
-      const cloudData = response['data'];
-      console.log('cloud Data : ', cloudData);
+      this.wordclouds[i].cloudData = response['data'];
+      console.log('cloud Data : ', this.wordclouds[i].cloudData);
       wordCloudModule(d3,d3Cloud).wordCloudGenerator({
         containerid: `#${cloud.divid}`,
-        wordclouddata: cloudData,
+        wordclouddata: this.wordclouds[i].cloudData,
         stopwords: 'this as of a was is new old how'});
     });
     });

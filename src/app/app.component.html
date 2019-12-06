@@ -8,7 +8,9 @@
 
   <div class="word-cloud">
     <h2 class="word-cloud-header" >{{wordcloud.title}}</h2>
-    <div class="word-cloud-div" [attr.id]=wordcloud.divid ></div>
+    <div class="word-cloud-div" [attr.id]=wordcloud.divid >
+        <p *ngIf="!wordcloud.cloudData">Loading ...</p>
+    </div>
   </div>
   </div>
 </div>
