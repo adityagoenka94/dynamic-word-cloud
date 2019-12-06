@@ -1,9 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="parent-container">
   <h1>
     Welcome to Word Cloud Center
   </h1>
-</div>
 <br/>
 <div class="word-cloud-group" *ngFor="let wordcloud of wordclouds; let i = index">
 
@@ -12,3 +11,4 @@
     <div class="word-cloud-div" [attr.id]=wordcloud.divid ></div>
   </div>
   </div>
+</div>

@@ -1,5 +1,5 @@
 'use strict';
-var wordCloudModule = (function (d3Object) {
+var wordCloudModule = (function (d3Object, d3Cloud) {
 
   // check D3 Library is available or not
   // if (!d3)
@@ -71,7 +71,7 @@ var wordCloudModule = (function (d3Object) {
       .range([10, 100]);
 
     // creating the layout of the word cloud
-    d3.layout.cloud().size([width, height])
+    d3Cloud().size([width, height])
       .timeInterval(20)
       .words(word_entries)
       .fontSize(function (d) {
@@ -111,7 +111,7 @@ var wordCloudModule = (function (d3Object) {
         });
     }
 
-    d3.layout.cloud().stop();
+    d3Cloud().stop();
   }
 
 

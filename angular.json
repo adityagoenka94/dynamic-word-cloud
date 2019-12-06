@@ -30,7 +30,6 @@
               "src/styles.scss"
             ],
             "scripts": [
-              "./src/cloudModule/d3.layout.cloud.js",
               "./src/cloudModule/word-cloud-module.js"
                        ]
           },

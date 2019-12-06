@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { FetchDataService } from './services/fetch-data.service';
-import * as d3 from './../cloudModule/d3.v4.js';
+import * as d3 from 'd3v4';
+import * as d3Cloud from 'd3-cloud'; 
 
 declare var wordCloudModule: any;
 // const d3 = './../cloudModule/d3.v4.js';
@@ -30,7 +31,7 @@ export class AppComponent implements OnInit {
     this.fetchDataS.getData(cloud.url).subscribe((response) => {
       const cloudData = response['data'];
       console.log('cloud Data : ', cloudData);
-      wordCloudModule(d3).wordCloudGenerator({
+      wordCloudModule(d3,d3Cloud).wordCloudGenerator({
         containerid: `#${cloud.divid}`,
         wordclouddata: cloudData,
         stopwords: 'this as of a was is new old how'});
